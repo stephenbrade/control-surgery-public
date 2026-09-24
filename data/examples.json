@@ -1,0 +1,619 @@
+{
+  "steps": 11,
+  "pattern": "step_{i}.wav",
+  "methods": {
+    "control_surgery": "Control Surgery (ours)",
+    "text_morph": "Text morph",
+    "echoedit": "EchoEdit",
+    "audio_morph": "SDEdit + RMS",
+    "ot_curve": "Optimal transport"
+  },
+  "examples": [
+    {
+      "id": "airflow-turbulence",
+      "group": "cherrypicked",
+      "tier": "airflow turbulence",
+      "source_prompt": "smooth laminar whoosh, clean air rush with minimal friction noise, flowing steadily",
+      "target_prompt": "a fast and chaotic turbulent whoosh, heavily textured air burst with crackling and stuttering friction",
+      "ops": [
+        "gain: boost to p85",
+        "brightness: boost to p75",
+        "envelope: attack \u00d70.5 (shorter)",
+        "envelope: tail \u00d70.5 (shorter)",
+        "seed 544498515"
+      ],
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/airflow-turbulence",
+          "label": "Control Surgery"
+        }
+      }
+    },
+    {
+      "id": "droplet-density",
+      "group": "cherrypicked",
+      "tier": "droplet density",
+      "source_prompt": "sparse rain with widely-spaced, isolated droplets falling and landing, long silent gaps between each plop",
+      "target_prompt": "heavy downpour with dense, overlapping rain drops creating a continuous rushing white-noise wash",
+      "ops": [
+        "gain: boost to p95",
+        "brightness: boost to p95",
+        "density: boost to p95",
+        "seed 1233"
+      ],
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/droplet-density",
+          "label": "Control Surgery"
+        }
+      }
+    },
+    {
+      "id": "engine-load",
+      "group": "cherrypicked",
+      "tier": "engine load",
+      "source_prompt": "a car engine idling with minimal fuel injection and low mechanical friction noise",
+      "target_prompt": "a car engine sputtering and struggling",
+      "ops": [
+        "gain: boost to p90",
+        "brightness: boost to p85",
+        "density: boost to p95",
+        "seed 1234"
+      ],
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/engine-load",
+          "label": "Control Surgery"
+        }
+      }
+    },
+    {
+      "id": "fragmentation-density",
+      "group": "cherrypicked",
+      "tier": "fragmentation density",
+      "source_prompt": "a glass bottle cracking into just a few large pieces hitting the floor",
+      "target_prompt": "a glass bottle exploding into countless tiny fragments cascading and tinkling across the floor",
+      "ops": [
+        "gain: boost to p70",
+        "brightness: boost to p90",
+        "envelope: tail \u00d72 (longer), about the peak",
+        "seed 623023498"
+      ],
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/fragmentation-density",
+          "label": "Control Surgery"
+        }
+      }
+    },
+    {
+      "id": "surface-hardness",
+      "group": "cherrypicked",
+      "tier": "surface hardness",
+      "source_prompt": "footsteps on a carpet",
+      "target_prompt": "footsteps on concrete",
+      "ops": [
+        "gain: boost to p70",
+        "brightness: boost to p75",
+        "density: reduce to p50",
+        "seed 1234"
+      ],
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/surface-hardness",
+          "label": "Control Surgery"
+        }
+      }
+    },
+    {
+      "id": "sneeze-repetition",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/sneeze-repetition",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/sneeze-repetition",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/sneeze-repetition",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/sneeze-repetition",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/sneeze-repetition",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "a single isolated sneeze",
+      "target_prompt": "a rapid fit of repeated sneezes",
+      "ops": []
+    },
+    {
+      "id": "click-cadence",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/click-cadence",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/click-cadence",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/click-cadence",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/click-cadence",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/click-cadence",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "a mouse button clicking once, a single isolated click",
+      "target_prompt": "a mouse button clicking rapidly in bursts of double-clicks",
+      "ops": []
+    },
+    {
+      "id": "casing-metal",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/casing-metal",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/casing-metal",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/casing-metal",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/casing-metal",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/casing-metal",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "a dull heavy casing dropping onto a hard floor with a soft clunk",
+      "target_prompt": "a bright brass casing dropping onto a hard floor with a metallic ring",
+      "ops": []
+    },
+    {
+      "id": "tear-straightness",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/tear-straightness",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/tear-straightness",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/tear-straightness",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/tear-straightness",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/tear-straightness",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "paper tearing cleanly in a straight line",
+      "target_prompt": "paper tearing raggedly along a jagged edge",
+      "ops": []
+    },
+    {
+      "id": "swirl-briskness",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/swirl-briskness",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/swirl-briskness",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/swirl-briskness",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/swirl-briskness",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/swirl-briskness",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "a toilet flushing with a slow, lazy drain",
+      "target_prompt": "a toilet flushing with a fast, sucking vortex",
+      "ops": []
+    },
+    {
+      "id": "rise-tempo",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/rise-tempo",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/rise-tempo",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/rise-tempo",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/rise-tempo",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/rise-tempo",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "occasional bubbles rising through liquid, spaced and lazy",
+      "target_prompt": "furious bubbles rising through liquid in a rolling boil",
+      "ops": []
+    },
+    {
+      "id": "vessel-resonance",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/vessel-resonance",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/vessel-resonance",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/vessel-resonance",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/vessel-resonance",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/vessel-resonance",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "liquid being poured into an empty vessel with a hollow ringing rise",
+      "target_prompt": "liquid being poured into a nearly full vessel with a low, deadened glug",
+      "ops": []
+    },
+    {
+      "id": "body-resonance",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/body-resonance",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/body-resonance",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/body-resonance",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/body-resonance",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/body-resonance",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "a dry close heartbeat pulse",
+      "target_prompt": "a heartbeat booming and resonating through the chest",
+      "ops": []
+    },
+    {
+      "id": "crush-tempo",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/crush-tempo",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/crush-tempo",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/crush-tempo",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/crush-tempo",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/crush-tempo",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "an aluminium can being crushed in a slow gradual squeeze",
+      "target_prompt": "an aluminium can being crushed in a quick violent stomp",
+      "ops": []
+    },
+    {
+      "id": "break-count",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/break-count",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/break-count",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/break-count",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/break-count",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/break-count",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "wood breaking in a single decisive snap",
+      "target_prompt": "wood breaking in a cascading crackle of successive snaps",
+      "ops": []
+    },
+    {
+      "id": "hinge-dryness",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/hinge-dryness",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/hinge-dryness",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/hinge-dryness",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/hinge-dryness",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/hinge-dryness",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "a door opening and closing on smooth oiled hinges with no squeak",
+      "target_prompt": "a door opening and closing on rusty hinges with a long squealing creak",
+      "ops": []
+    },
+    {
+      "id": "impact-surface",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/impact-surface",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/impact-surface",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/impact-surface",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/impact-surface",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/impact-surface",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "a shower running and splashing onto hard empty tile",
+      "target_prompt": "a shower running and splashing onto a body under the water",
+      "ops": []
+    },
+    {
+      "id": "travel-length",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/travel-length",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/travel-length",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/travel-length",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/travel-length",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/travel-length",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "a zipper being pulled a short distance in a brief tug",
+      "target_prompt": "a zipper being pulled its full length in a long continuous run",
+      "ops": []
+    },
+    {
+      "id": "detent-count",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/detent-count",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/detent-count",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/detent-count",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/detent-count",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/detent-count",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "a knob being turned through just a couple of widely spaced clicks",
+      "target_prompt": "a knob being turned through many closely packed clicks",
+      "ops": []
+    },
+    {
+      "id": "click-release-gap",
+      "group": "random",
+      "methods": {
+        "control_surgery": {
+          "dir": "audio/morphs/control_surgery/click-release-gap",
+          "pattern": "step_{i}.mp3",
+          "label": "Control Surgery"
+        },
+        "ot_curve": {
+          "dir": "audio/morphs/ot_curve/click-release-gap",
+          "pattern": "step_{i}.mp3",
+          "label": "Optimal transport"
+        },
+        "audio_morph": {
+          "dir": "audio/morphs/audio_morph/click-release-gap",
+          "pattern": "step_{i}.mp3",
+          "label": "SDEdit + RMS"
+        },
+        "text_morph": {
+          "dir": "audio/morphs/text_morph/click-release-gap",
+          "pattern": "step_{i}.mp3",
+          "label": "Text morph"
+        },
+        "echoedit": {
+          "dir": "audio/morphs/echoedit/click-release-gap",
+          "pattern": "step_{i}.mp3",
+          "label": "EchoEdit"
+        }
+      },
+      "source_prompt": "a mouse button clicking once",
+      "target_prompt": "a mouse button double-clicking in quick succession",
+      "ops": []
+    }
+  ]
+}

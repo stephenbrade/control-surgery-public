@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Control Surgery: Supplementary Materials</title>
+  <meta name="description" content="Supplementary page for Control Surgery: targeted sound morphing and editing with agentic sketch-control edits.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <h1 class="title">Control Surgery: Targeted Sound Morphing and Editing with Agentic Sketch-Control Edits</h1>
+      <p class="authors">
+        Stephen Brade<sup>1</sup>,
+        Oriol Nieto<sup>2</sup>,
+        Prem Seetharaman<sup>2</sup>,
+        Johannes Imort<sup>2</sup>,
+        Jui-Hsien Wang<sup>2</sup>,
+        Justin Salamon<sup>2</sup>,
+        Hugo Flores García<sup>2</sup>
+      </p>
+      <p class="affiliations">
+        <sup>1</sup> MIT CSAIL &nbsp;·&nbsp;
+        <sup>2</sup> Adobe Research
+      </p>
+      <p class="author-note">
+        Correspondence: <a href="mailto:brade@mit.edu">brade@mit.edu</a>
+      </p>
+      <nav aria-label="Sections">
+        <ul class="nav-toc">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#cherry-picked">Cherry-picked</a></li>
+          <li><a href="#random">Random</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h2>Overview</h2>
+      <p class="lede">
+        Supplementary listening examples for <em>Control Surgery</em>. Each example is a morph:
+        an LLM agent authors interpretable edits (gain, brightness, pitch, onset density, envelope)
+        to the source's sketch-like control signals, and the morph engine applies them at fraction
+        <em>α</em> alongside a CFG mix of source and target prompts. Drag the slider to move from the
+        source (α = 0) to the edited target (α = 1); playback stays in place as you scrub, so you can
+        hear the same moment of the sound at every step.
+      </p>
+      <p class="abstract">
+        Value operators name a destination band on a corpus percentile ladder: the control curve is
+        rescaled so its peak sits at that percentile of the signal's distribution over the training
+        corpus, which keeps every authored edit within a magnitude the corpus actually exhibits.
+      </p>
+      <figure class="figure-wrap">
+        <!-- REPLACE_IMAGE: export control_surgery_fig2_4.pdf to images/overview.png -->
+        <img src="images/overview.png" alt="Control Surgery method overview" loading="lazy">
+        <figcaption>
+          The agent reads the source control signals and target prompt, authors operator calls over
+          those signals, and the morph engine renders each α step under a CFG mix of source and
+          target prompts.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="cherry-picked">
+      <h2>Cherry-picked examples</h2>
+      <p class="lede">
+        Hand-selected morphs, one per perceptual axis. Each was authored by the agent from the source
+        and target prompts alone; the slider walks the 11 rendered α steps. Use <em>All steps</em>
+        to see the whole trajectory at a glance and <em>Envelopes</em> to see how the edit reshapes
+        the sound over time.
+      </p>
+      <div data-morph-group data-group="cherrypicked" data-methods="control_surgery"></div>
+    </section>
+
+    <section id="random">
+      <h2>Random examples</h2>
+      <p class="lede">
+        Uncurated cards drawn from the FoleySet source–target pairs used in the evaluation, with
+        no filtering for quality. Every method is rendered on the same pair, seed and 11-step
+        α grid, so the players sit side by side; Control Surgery is first in each row.
+      </p>
+      <div data-morph-group data-group="random"></div>
+    </section>
+
+
+    <!-- SECTION PARKED: no audio yet. Re-enable by deleting this comment wrapper
+         and its closing marker, and re-adding the nav-toc link above. -->
+    <!--
+    <section id="baselines">
+      <h2>Baseline comparisons</h2>
+      <p class="lede">
+        The same source–target pair rendered by every method, on the same backbone, seed, and
+        11-step α grid. Compare the "All steps" strips to see how evenly each method advances
+        toward the target, and the "Envelopes" view to see how much of the source's temporal
+        structure survives.
+      </p>
+      <div data-morph-group data-group="baselines"></div>
+    </section>
+    -->
+
+    <!-- SECTION PARKED: no audio yet. Re-enable by deleting this comment wrapper
+         and its closing marker, and re-adding the nav-toc link above. -->
+    <!--
+    <section id="ablations">
+      <h2>Ablations</h2>
+      <p class="lede">
+        Audio for the ablation arms in the paper: the envelope operator (none / unclamped /
+        clamped), control release step, laddered vs. raw edit magnitudes, conditioning
+        decomposition, and authoring-LLM scale.
+      </p>
+      <div data-morph-group data-group="ablations"></div>
+    </section>
+    -->
+
+  </main>
+
+  <footer class="site-footer">
+    Supplementary material for Control Surgery. Audio is provided for research demonstration only.
+  </footer>
+
+  <script src="morph.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
